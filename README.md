@@ -6,11 +6,13 @@ If you do use them then you will need to update the values in `gitsetup.sh`.
 
 Tested in Fedora, CentOS and Ubuntu.
 
-@philingrey
+[@philingrey](https://twitter.com/philingrey)
 
 ## Licenses
 
 Code within this repository is licensed under the MIT license, unless not owned by me or otherwise stated.
+
+For a full MIT license see http://pci.mit-license.org/
 
 The following are also included in this repository:
 
