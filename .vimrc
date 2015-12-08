@@ -3,6 +3,18 @@
 set nocompatible
 set encoding=utf-8
 
+" Manage plugins with vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Start off sensible 
+Plug 'tpope/vim-sensible'
+
+" Fuzzy search
+Plug 'ctrlpvim/ctrlp.vim'
+
+call plug#end()
+
+
 " Detect filetype
 filetype plugin on
 " Enable syntax highighting

@@ -14,3 +14,9 @@ mv .git-prompt.sh .git-prompt.sh.bak
 ln -s dotfiles/.git-prompt.sh .git-prompt.sh
 mv .xmonad .xmonad_bak
 ln -s dotfiles/.xmonad .xmonad
+
+# Install the vim plugins
+vim +PlugInstall +qall
+
+echo "Dotfiles installed"
+
