@@ -12,6 +12,12 @@ Plug 'tpope/vim-sensible'
 " Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Tree directory
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" Tree directory with git status icons
+Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+
 call plug#end()
 
 
@@ -94,6 +100,9 @@ set mouse=a
 " File explorer tree view
 let g:netrw_liststyle=3
 
+" Filepath autocomplete bash-style
+set wildmenu
+set wildmode=list:longest
 
 " Word-processing
 
