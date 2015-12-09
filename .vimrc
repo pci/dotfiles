@@ -18,6 +18,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Tree directory with git status icons
 Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 
+" All the Go powers
+Plug 'fatih/vim-go', { 'for': 'go' }
+
 call plug#end()
 
 
