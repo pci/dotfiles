@@ -21,8 +21,13 @@ Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
 " All the Go powers
 Plug 'fatih/vim-go', { 'for': 'go' }
 
+" Motion so good it should have a health warning
+Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
+" Remap plugin bindings
+map \ <Plug>(easymotion-prefix)
 
 " Detect filetype
 filetype plugin on
