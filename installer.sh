@@ -2,6 +2,8 @@
 cd ~/
 mv .screenrc .screenrc_bak
 ln -s dotfiles/.screenrc .screenrc
+mv .bash_profile .bash_profile_bak
+ln -s dotfiles/.bash_profile .bash_profile
 mv .bashrc .bashrc_bak
 ln -s dotfiles/.bashrc .bashrc
 mv .vimrc .vimrc_bak
