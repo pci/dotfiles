@@ -9,6 +9,9 @@ call plug#begin('~/.vim/plugged')
 " Start off sensible 
 Plug 'tpope/vim-sensible'
 
+" Sometimes I think I should just auto-sync all of tpope repos
+Plug 'tpope/vim-repeat'
+
 " Fuzzy search
 Plug 'ctrlpvim/ctrlp.vim'
 
