@@ -16,10 +16,10 @@ Plug 'tpope/vim-repeat'
 Plug 'ctrlpvim/ctrlp.vim'
 
 " Tree directory
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 
 " Tree directory with git status icons
-Plug 'Xuyuanp/nerdtree-git-plugin', { 'on':  'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " All the Go powers
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -27,10 +27,27 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Motion so good it should have a health warning
 Plug 'easymotion/vim-easymotion'
 
+" Syntax checking
+Plug 'scrooloose/syntastic'
+
 call plug#end()
 
 " Remap plugin bindings
 map \ <Plug>(easymotion-prefix)
+map <tab> <Plug>(easymotion-prefix)
+
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" NERDTree open if you run 'vim' with no files specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Detect filetype
 filetype plugin on
@@ -52,7 +69,6 @@ colorscheme monokai
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
 
-
 " Visual decorations
 
 " Show status line
@@ -63,21 +79,12 @@ set showmode
 set showcmd
 " Allow modelines
 set modeline
+" Show line numbers
+set number
 " Show current line and column position in file
 set ruler
 " Show file title in terminal tab
 set title
-" Set relative line numbers if we can...
-if exists("+relativenumber")
-" Due to a problem with relative line numbers not persisting across new
-" tabs and splits, set no line numbers at all...
-    set nonumber
-    " ..then set relative ones.
-    set relativenumber
-    " ...otherwise let’s just have regular ones.
-else
-    set number
-endif
 " Highlight current line
 set cursorline
 " Don’t keep results highlighted after searching...
