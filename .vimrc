@@ -30,24 +30,31 @@ Plug 'easymotion/vim-easymotion'
 " Syntax checking
 Plug 'scrooloose/syntastic'
 
+" JSX support
+Plug 'mxw/vim-jsx', { 'for': 'js' }
+
 call plug#end()
 
 " Remap plugin bindings
 map \ <Plug>(easymotion-prefix)
 map <tab> <Plug>(easymotion-prefix)
 
+" Syntastic setup
+let g:syntastic_enable_signs = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height = 3
 
-" Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-" Remember info about open buffers on close
-set viminfo^=%
+let g:syntastic_javascript_checkers = ['eslint']
 
 " NERDTree open if you run 'vim' with no files specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Go vim setup
+let g:go_fmt_command = "goimports"
 
 " Detect filetype
 filetype plugin on
@@ -68,6 +75,8 @@ colorscheme monokai
 " Set relevant filetypes
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
+" Don't be clever with crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Visual decorations
 
@@ -100,10 +109,13 @@ set smartcase
 
 filetype plugin indent on
 " 4 spaces please
+set smarttab
 set expandtab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+" Show tabs-spaces at the end of a line
+set list
 " Round indent to nearest multiple of 4
 set shiftround
 " No line-wrapping
@@ -121,6 +133,9 @@ let g:netrw_liststyle=3
 " Filepath autocomplete bash-style
 set wildmenu
 set wildmode=list:longest
+
+" Specific file type setups
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " Word-processing
 

@@ -101,11 +101,21 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Mac specfic setup
+if [ -f ~/.bash_mac ]; then
+    . ~/.bash_mac
+fi
+
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
+fi
+which -s brew
+if [[ $? == 0 ]] && [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
 fi
 
 
@@ -114,3 +124,10 @@ GIT_PS1_SHOWCOLORHINTS=yes
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
 export PATH=~/bin:$PATH
+
+export NVM_DIR="/Users/philip/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export NVM_DIR="/Users/philip/.gvm"
+[ -s "$NVM_DIR/bin/gvm-init.sh" ] && . "$NVM_DIR/bin/gvm-init.sh" 
+
