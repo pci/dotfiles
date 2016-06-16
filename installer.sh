@@ -16,6 +16,8 @@ mv .git-prompt.sh .git-prompt.sh.bak
 ln -s dotfiles/.git-prompt.sh .git-prompt.sh
 mv .xmonad .xmonad_bak
 ln -s dotfiles/.xmonad .xmonad
+mv .psqlrc .psqlrc_bak
+ln -s dotfiles/.psqlrc .psqlrc
 
 # Install the vim plugins
 vim +PlugInstall +qall

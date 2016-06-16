@@ -48,6 +48,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_loc_list_height = 3
 
 let g:syntastic_javascript_checkers = ['eslint']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " NERDTree open if you run 'vim' with no files specified
 autocmd StdinReadPre * let s:std_in=1

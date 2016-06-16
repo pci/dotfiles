@@ -1,0 +1,33 @@
+-- Reference: http://www.manniwood.com/postgresql_stuff/index.html
+
+-- Guess how to display data
+\x auto
+
+-- Set prompt
+\set PROMPT1 '%M:%> %n@%/%R%#%x '
+\set PROMPT2 '> '
+
+-- Display null in a different way to empty string...
+\pset null '[NULL]'
+
+-- Borders
+\pset linestyle unicode
+\pset border 2
+
+-- No pager
+\pset pager off
+
+-- Show duration
+\timing
+
+-- Per-host history
+\set HISTFILE ~/.psql_history- :HOST - :DBNAME
+
+
+-- "aliases"
+-- Call with :summary
+\set summary 'SELECT sd.token AS token, td.recorded, p.user_id AS time FROM touchpoint_data td INNER JOIN sharepoint_data sd ON sd.id = td.sharepoint_data_id INNER JOIN person p ON p.id = td.person_id;'
+
+\echo '\n** Aliases **\n'
+\echo 'Type :na to get ID for client with _NA code\n'
+\set na 'SELECT id FROM core.client WHERE code = $c$_NA$c$'
