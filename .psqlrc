@@ -21,7 +21,7 @@
 \timing
 
 -- Per-host history
-\set HISTFILE ~/.psql_history- :HOST - :DBNAME
+\set HISTFILE ~/.psql_history- :DBNAME
 
 
 -- "aliases"
@@ -29,5 +29,5 @@
 \set summary 'SELECT sd.token AS token, td.recorded, p.user_id AS time FROM touchpoint_data td INNER JOIN sharepoint_data sd ON sd.id = td.sharepoint_data_id INNER JOIN person p ON p.id = td.person_id;'
 
 \echo '\n** Aliases **\n'
-\echo 'Type :na to get ID for client with _NA code\n'
-\set na 'SELECT id FROM core.client WHERE code = $c$_NA$c$'
+\echo 'Type :tla to get ID for client with TLA code\n'
+\set tla 'SELECT id FROM core.client WHERE code = $c$TLA$c$'

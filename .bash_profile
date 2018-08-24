@@ -5,5 +5,10 @@ if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
 fi
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/opt/google-cloud-sdk/path.bash.inc' ]; then source '/opt/google-cloud-sdk/path.bash.inc'; fi
 
-[[ -s "/Users/philip/.gvm/scripts/gvm" ]] && source "/Users/philip/.gvm/scripts/gvm"
+# The next line enables shell command completion for gcloud.
+if [ -f '/opt/google-cloud-sdk/completion.bash.inc' ]; then source '/opt/google-cloud-sdk/completion.bash.inc'; fi
+
+export PATH="$HOME/.cargo/bin:$PATH"

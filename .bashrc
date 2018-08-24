@@ -103,7 +103,6 @@ fi
 
 # Work specific aliases/functions
 # i.e. stuff that can't be made public
-
 if [ -f ~/.bash_work ]; then
     . ~/.bash_work
 fi
@@ -130,13 +129,16 @@ source ~/.git-prompt.sh
 GIT_PS1_SHOWCOLORHINTS=yes
 PROMPT_COMMAND='__git_ps1 "\u@\h:\w" "\\\$ "'
 
-export PATH=~/bin:$PATH
+export PATH=~/bin:/opt/bin:$PATH
+export PATH=/opt/google-cloud-sdk/bin:$PATH
 HOME=$(cd ~ && pwd)
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export GVM_DIR="$HOME/.gvm"
-[ -s "$NVM_DIR/bin/gvm-init.sh" ] && . "$NVM_DIR/bin/gvm-init.sh" 
-export GOPATH="$HOME/development"
+[ -s "$GVM_DIR/bin/gvm-init.sh" ] && . "$GVM_DIR/bin/gvm-init.sh"
+[[ -s "$GVM_DIR/scripts/gvm" ]] && source "$GVM_DIR/scripts/gvm"
+export GOPATH=$HOME/development
+export PATH=$PATH:${GOPATH//://bin:}/bin
 

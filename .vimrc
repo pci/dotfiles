@@ -79,6 +79,7 @@ colorscheme monokai
 au BufRead,BufNewFile *.scss set filetype=css
 au BufRead,BufNewFile *.md set filetype=markdown
 " Don't be clever with crontab
+set backupskip=/tmp/*,/private/tmp/*
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Visual decorations
