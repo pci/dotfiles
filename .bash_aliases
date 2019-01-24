@@ -29,3 +29,35 @@ function calc() {
 
     # Add more here, e.g. fallback to bc, python, ruby
 }
+
+function guse() {
+    [[ $# == 0 ]] && return
+
+    VERSION=$1
+
+    # test the version exists:
+    command "go$VERSION" version
+    if [[ $? != 0 ]]; then
+      echo "go$VERSION doesn't exist"
+      return
+    fi
+
+    GOLOC=$(which go)
+    mv "$GOLOC" "$GOLOC.bak"
+    ln -s $(which "go$VERSION") "$GOLOC"
+    rm "$GOLOC.bak"
+
+    echo "go => go$VERSION"
+    return
+}
+
+function ginstall() {
+    [[ $# == 0 ]] && return
+
+    VERSION=$1
+
+    go get "golang.org/dl/go$VERSION"
+    command "go$VERSION" download
+    guse "$VERSION"
+    return
+}

@@ -133,12 +133,15 @@ export PATH=~/bin:/opt/bin:$PATH
 export PATH=/opt/google-cloud-sdk/bin:$PATH
 HOME=$(cd ~ && pwd)
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export N_PREFIX="$HOME/.node-n"
+if [[ ! -d "$N_PREFIX" ]]; then
+   git clone https://github.com/tj/n.git "$N_PREFIX"
+fi
+PATH="$PATH:$N_PREFIX/bin"
 
 export GVM_DIR="$HOME/.gvm"
 [ -s "$GVM_DIR/bin/gvm-init.sh" ] && . "$GVM_DIR/bin/gvm-init.sh"
 [[ -s "$GVM_DIR/scripts/gvm" ]] && source "$GVM_DIR/scripts/gvm"
-export GOPATH=$HOME/development
+export GOPATH="$HOME/go"
 export PATH=$PATH:${GOPATH//://bin:}/bin
 
