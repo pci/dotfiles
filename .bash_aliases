@@ -46,6 +46,15 @@ function guse() {
     mv "$GOLOC" "$GOLOC.bak"
     ln -s $(which "go$VERSION") "$GOLOC"
     rm "$GOLOC.bak"
+    # tooling
+    GODOC=$(which godoc)
+    GONEWDOC=$(go tool -n doc)
+    mv "$GODOC" "$GODOC.bak"
+    ln -s "$GONEWDOC" "$GODOC"
+    rm "$GODOC.bak"
+    # there's currently no gofmt equivelent: https://github.com/golang/go/issues/27166
+    rm ${GODOC/godoc/gofmt}
+    ln -s ${GONEWDOC/godoc/gofmt} ${GODOC/godoc/gofmt}
 
     echo "go => go$VERSION"
     return
