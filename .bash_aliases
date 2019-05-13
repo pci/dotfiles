@@ -18,6 +18,7 @@ alias gv="git rev-parse --short HEAD"
 alias uuid='uuidgen | tr -d "\n" | pbcopy'
 alias webserver='python -m SimpleHTTPServer'
 alias jsonprint='python -m json.tool'
+alias cloud-shell='gcloud alpha cloud-shell ssh'
 
 function calc() {
     [[ $# == 0 ]] && return
@@ -54,7 +55,7 @@ function guse() {
     rm "$GODOC.bak"
     # there's currently no gofmt equivelent: https://github.com/golang/go/issues/27166
     rm ${GODOC/godoc/gofmt}
-    ln -s ${GONEWDOC/godoc/gofmt} ${GODOC/godoc/gofmt}
+    ln -s ${GONEWDOC/doc/fmt} ${GODOC/godoc/gofmt}
 
     echo "go => go$VERSION"
     return
