@@ -2,6 +2,15 @@
 alias h='heroku'
 alias k='kubectl'
 
+# some more ls aliases
+alias ll='ls -alFh'
+alias la='ls -Ah'
+alias l='ls -CFh'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
 alias gc='git commit -am '
 alias gp='git pull --ff-only'
 alias gpr='git pull --rebase'
@@ -70,4 +79,15 @@ function ginstall() {
     command "go$VERSION" download
     guse "$VERSION"
     return
+}
+
+function whoiz() {
+    # TODO: Take a flag which allows explicit switching but with a default
+    local ip="$1"
+
+    if [ -n "$2" ]; then
+        whois -h asn.shadowserver.org "peer $ip"
+    else
+        whois -h whois.cymru.com "$ip"
+    fi
 }

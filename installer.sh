@@ -18,6 +18,8 @@ mv .xmonad .xmonad_bak
 ln -s dotfiles/.xmonad .xmonad
 mv .psqlrc .psqlrc_bak
 ln -s dotfiles/.psqlrc .psqlrc
+mv .zshrc .zshrc_bak
+ln -s dotfiles/.zshrc .zshrc
 
 # Install the vim plugins
 vim +PlugInstall +qall
