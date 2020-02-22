@@ -134,6 +134,6 @@ PATH="$PATH:$N_PREFIX/bin"
 export GVM_DIR="$HOME/.gvm"
 [ -s "$GVM_DIR/bin/gvm-init.sh" ] && . "$GVM_DIR/bin/gvm-init.sh"
 [[ -s "$GVM_DIR/scripts/gvm" ]] && source "$GVM_DIR/scripts/gvm"
-export GOPATH="$HOME/go"
+export GOPATH="$HOME"
 export PATH=$PATH:${GOPATH//://bin:}/bin
 
