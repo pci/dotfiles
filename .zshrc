@@ -102,3 +102,4 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.bashrc ]; then
     . ~/.bashrc
 fi
+[ -f "/Users/philip/.ghcup/env" ] && source "/Users/philip/.ghcup/env" # ghcup-env

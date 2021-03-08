@@ -24,10 +24,11 @@ alias gl="git log  --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d
 alias gbb="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 alias gv="git rev-parse --short HEAD"
 
-alias uuid='uuidgen | tr -d "\n" | pbcopy'
+alias uuid='uuidgen | tr -d "\n" | pbcopy && pbpaste'
 alias webserver='python -m SimpleHTTPServer'
 alias jsonprint='python -m json.tool'
 alias cloud-shell='gcloud alpha cloud-shell ssh'
+alias gcurl='curl --header "Authorization: Bearer $(gcloud auth print-identity-token)"'
 
 function calc() {
     [[ $# == 0 ]] && return
