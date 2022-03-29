@@ -76,7 +76,7 @@ function ginstall() {
 
     VERSION=$1
 
-    go get "golang.org/dl/go$VERSION"
+    go install "golang.org/dl/go$VERSION@latest"
     command "go$VERSION" download
     guse "$VERSION"
     return
